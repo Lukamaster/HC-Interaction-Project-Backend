@@ -1,13 +1,13 @@
 package com.hci.hcionlineshop.service;
 
-import com.hci.hcionlineshop.model.Category;
+import com.hci.hcionlineshop.model.ProductCategory;
 
 import java.util.List;
 
 public interface CategoryService {
 
-    List<Category> listAllCategories();
+    List<ProductCategory> listAllCategories();
 
-    Category findById(Long id);
-    Category findByName(String name);
+    ProductCategory findById(Long id);
+    ProductCategory findByName(String name);
 }

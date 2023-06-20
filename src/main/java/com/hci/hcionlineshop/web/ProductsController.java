@@ -41,25 +41,27 @@ public class ProductsController {
 
     @PostMapping("/add")
     public String addNewProduct(@RequestParam(required = false) String productName,
+                                @RequestParam(required = false) String price,
                                 @RequestParam(required = false) String manufacturer,
                                 @RequestParam(required = false) String SKU,
                                 @RequestParam(required = false) String category,
                                 @RequestParam(required = false) Address storageLocation,
                                 @RequestParam(required = false) Date dateOfManufacture,
                                 @RequestParam(required = false) boolean hasWarranty) {
-        this.productService.create(productName, manufacturer, SKU, category, storageLocation, dateOfManufacture, hasWarranty);
+        this.productService.create(productName, price, manufacturer, SKU, category, storageLocation, dateOfManufacture, hasWarranty);
         return "redirect:/all";
     }
     @PostMapping("/{id}/update")
     public String updateProduct(@PathVariable Long id,
                                 @RequestParam(required = false) String productName,
+                                @RequestParam(required = false) String price,
                                 @RequestParam(required = false) String manufacturer,
                                 @RequestParam(required = false) String SKU,
                                 @RequestParam(required = false) String category,
                                 @RequestParam(required = false) Address storageLocation,
                                 @RequestParam(required = false) Date dateOfManufacture,
                                 @RequestParam(required = false) boolean hasWarranty) {
-        this.productService.update(id, productName, manufacturer, SKU, category, storageLocation, dateOfManufacture, hasWarranty);
+        this.productService.update(id, productName, price, manufacturer, SKU, category, storageLocation, dateOfManufacture, hasWarranty);
         return "redirect:/all";
     }
 

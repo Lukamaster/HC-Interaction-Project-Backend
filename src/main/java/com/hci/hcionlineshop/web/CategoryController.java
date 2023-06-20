@@ -1,6 +1,6 @@
 package com.hci.hcionlineshop.web;
 
-import com.hci.hcionlineshop.model.Category;
+import com.hci.hcionlineshop.model.ProductCategory;
 import com.hci.hcionlineshop.service.CategoryService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,7 +22,7 @@ public class CategoryController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Category>> fetchAllCategories() {
+    public ResponseEntity<List<ProductCategory>> fetchAllCategories() {
         return ResponseEntity.ok(categoryService.listAllCategories());
 
     }

@@ -1,13 +1,12 @@
 package com.hci.hcionlineshop.service.impl;
 
-import com.hci.hcionlineshop.model.Category;
+import com.hci.hcionlineshop.model.ProductCategory;
 import com.hci.hcionlineshop.model.exceptions.InvalidCategoryIdException;
 import com.hci.hcionlineshop.repository.CategoryRepository;
 import com.hci.hcionlineshop.service.CategoryService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
@@ -19,17 +18,17 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<Category> listAllCategories() {
+    public List<ProductCategory> listAllCategories() {
         return this.categoryRepository.findAll();
     }
 
     @Override
-    public Category findById(Long id) {
+    public ProductCategory findById(Long id) {
         return this.categoryRepository.findById(id).orElseThrow(InvalidCategoryIdException::new);
     }
 
     @Override
-    public Category findByName(String name) {
-        return this.categoryRepository.findByName(name);
+    public ProductCategory findByName(String name) {
+        return this.categoryRepository.findByCategoryName(name);
     }
 }

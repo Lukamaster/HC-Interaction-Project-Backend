@@ -17,23 +17,25 @@ import java.util.Date;
 public class Product {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
     private String productName;
+    private String price;
     private String manufacturer;
     private String SKU;
     @ManyToOne
-    private Category category;
+    private ProductCategory productCategory;
     @ManyToOne
     private Address storageLocation;
     private Date dateOfManufacture;
     private boolean hasWarranty;
 
-    public Product(String productName, String manufacturer, String sku, Category category, Address storageLocation, Date dateOfManufacture, boolean hasWarranty) {
+    public Product(String productName, String price, String manufacturer, String sku, ProductCategory productCategory, Address storageLocation, Date dateOfManufacture, boolean hasWarranty) {
         this.productName = productName;
         this.manufacturer = manufacturer;
+        this.price = price;
         this.SKU = sku;
-        this.category = category;
+        this.productCategory = productCategory;
         this.storageLocation = storageLocation;
         this.dateOfManufacture = dateOfManufacture;
         this.hasWarranty = hasWarranty;
